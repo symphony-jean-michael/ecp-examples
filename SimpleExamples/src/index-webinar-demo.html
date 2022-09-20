@@ -15,7 +15,7 @@ div.ecp-chat {
 <body>
 	<!-- Define our ECP containers -->
 	<div class="ecp-chat" style="display: inline-block"></div>
-    <div class="ecp-chat" style="display: inline-block" id="chat-1"></div>
+	<div class="ecp-chat" style="display: inline-block" id="chat-1"></div>
 	<div class="ecp-chat" style="display: inline-block" id="chat-2"></div>"
 	<!-- Once ECP is loaded, call render function to load chat in main iframe -->
 	<script type="text/javascript">
@@ -29,23 +29,21 @@ div.ecp-chat {
 	</script>
 	<!-- Load Symphony ECP SDK with Explicit rendering -->
 	<script id="symphony-ecm-sdk" data-onload="onEcpSdkLoaded" render="explicit" src="https://develop2.symphony.com/embed/sdk.js"></script>
-    <!-- Create text entry box for streamID -->
+	<!-- Create text entry box for streamID -->
 	<form name="streamForm" action="" method="get">Enter a StreamID:
 		<br/>
 		<input type="text" name="streamId" value="">
-		<input type="button" name="button" value="Submit" onClick="openRoom(this.form)">
-    </form>
+		<input type="button" name="button" value="Submit" onClick="openRoom(this.form)"> </form>
 	<!-- Create text entry box for userID's -->
 	<form name="userForm" action="" method="get">Enter UserID's:
 		<BR/>
 		<input type="text" name="users" value="">
-		<input type="button" name="button" value="Submit" onClick="startRoom(this.form)">
-    </form>
-    <script type="text/javascript">
+		<input type="button" name="button" value="Submit" onClick="startRoom(this.form)"> </form>
+	<script type="text/javascript">
 	// Open chat with streamID in ECP container #chat-1 -->
 	function openRoom(streamForm) {
 		window.symphony.openStream(streamForm.streamId.value, '#chat-1');
-        // Add notification listener for new messages
+		// Add notification listener for new messages
 		symphony.listen({
 			type: 'MessageNotifications',
 			params: {
@@ -55,7 +53,7 @@ div.ecp-chat {
 				alert('Stream: ' + notification.streamName + '\nSender: ' + notification.fromWhomName + '\nMessage: ' + notification.message);
 			},
 		});
-    }
+	}
 	// Open chat with userID in ECP container #chat-2
 	function startRoom(userForm) {
 		window.symphony.startRoom([userForm.users.value], '#chat-2');
