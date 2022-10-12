@@ -1,0 +1,16 @@
+.graph {
+  position: relative;
+  .share-logo {
+    position: absolute;
+    cursor: pointer;
+    width: 20px;
+    top: 0;
+    right: 0;
+    fill: var(--on-background-color);
+    padding: 10px;
+  }
+  .chart-container {
+    max-width: 420px;
+    margin: auto;
+  }
+}

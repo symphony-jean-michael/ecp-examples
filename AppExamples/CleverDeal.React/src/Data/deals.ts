@@ -82,5 +82,5 @@ export const deals: DashboardItemInterface[] = [
     type: 'Corporate Bond',
     minimum: '$150k'
   }},  
-  ...generateDeals(15)
+  ...generateDeals(12)
 ];

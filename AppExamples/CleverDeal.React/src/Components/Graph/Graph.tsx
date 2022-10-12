@@ -2,6 +2,8 @@ import { Chart, registerables } from "chart.js";
 import React from "react";
 
 import { CHART_COLORS, months, numbers } from './Graph.utils';
+import {ReactComponent as ShareLogo} from './share.svg';
+import './Graph.scss';
 
 const DATA_COUNT = 14;
 const NUMBER_CFG = {count: DATA_COUNT, min: 50, max: 100};
@@ -9,6 +11,7 @@ const NUMBER_CFG = {count: DATA_COUNT, min: 50, max: 100};
 export interface GraphProps {
   dealId: string;
   dealName: string;
+  onShare: (base64Image: string) => any;
 }
 
 export class Graph extends React.PureComponent<GraphProps> {
@@ -79,9 +82,22 @@ export class Graph extends React.PureComponent<GraphProps> {
     });
   }
 
+  share = () => {
+    if (this.chart) {
+      this.props.onShare(this.chart.toBase64Image('image/jpeg', 1))
+    }
+  }
+
   render() {
     return (
-      <canvas ref={this.chartRef} id={this.chartId}></canvas>
+      <>
+        <div className="share-logo" onClick={this.share}>
+          <ShareLogo ></ShareLogo>
+        </div>
+        <div className="chart-container">
+          <canvas ref={this.chartRef} id={this.chartId}></canvas>
+        </div>
+      </>
     );
   }
 }
