@@ -4,7 +4,6 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-
 const DEFAULT_ORIGIN: string = "corporate.symphony.com";
 const originInParams = (new URL(window.location.href)).searchParams.get('ecpOrigin');
 

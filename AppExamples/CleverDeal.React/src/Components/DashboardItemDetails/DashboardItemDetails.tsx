@@ -22,7 +22,7 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
 
   constructor(props: DashboardItemDetailsProps) {
     super(props);
-    this.chatId = `symphony-ecm-${props.deal.dealId}`;
+    this.chatId = `symphony-ecm-${props.deal.dealId}-${Date.now()}`;
     this.chatRef = React.createRef();
     this.state = {sdkLoading: true};
   }
@@ -51,6 +51,33 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
     }
   }
 
+  onShare = (b64Image: string) => {
+    const roomId = this.props.deal.details.roomId && this.props.deal.details.roomId[this.props.ecpOrigin];
+    if (!roomId) {
+      return;
+    }
+    const message = {
+      text: {
+        ['text/markdown']: '',
+      },
+      entities: {
+        attachmentImage: {
+          type: 'fdc3.fileAttachment',
+          data: {
+            name: 'graph.jpeg',
+            dataUri: b64Image,
+          },
+        },
+      }
+    };
+    return (window as any).symphony.sendMessage(message, {
+      mode: 'blast',
+      streamIds: [roomId],
+      users: [],
+      container: this.chatId
+    })
+  };
+
   render() {
     const { name, details } = this.props.deal;
     return (
@@ -60,7 +87,7 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
           <div className="close cross" onClick={() => this.props.onClose()}>x</div>
         </div>
         <div className="graph">
-          <Graph dealId={this.props.deal.dealId} dealName={this.props.deal.name}></Graph>
+          <Graph dealId={this.props.deal.dealId} dealName={this.props.deal.name} onShare={this.onShare}></Graph>
         </div>
         <div className="tabs">
           <Tabs forceRenderTabPanel={true}>

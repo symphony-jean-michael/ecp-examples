@@ -10,7 +10,7 @@
     width: 100%;
     align-items: center;
     background-color: var(--surface-color);
-    padding: 1rem 0;
+    padding: .6rem 0;
     border-bottom: 2px solid var(--background-color);
     .title {
       margin: auto;
@@ -23,17 +23,16 @@
     }
   }
   .graph {
-    min-height: 15rem;
-    margin: 1rem;
+    margin: .5rem;
     background-color: var(--background-color);
   }
   .tabs {
-    margin: 1rem;
+    margin: .5rem;
     min-height: 30rem;
     position: relative;
     .symphony-ecm-chat {
       iframe {
-        min-height: 30rem;
+        min-height: 34rem;
       }
     }
     .loader {
