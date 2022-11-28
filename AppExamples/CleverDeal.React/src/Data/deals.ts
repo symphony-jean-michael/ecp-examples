@@ -63,7 +63,7 @@ export const deals: DashboardItemInterface[] = [
     members: [yannick, antoine, thomas],
     roomId: {
       'st3.symphony.com': 'egJ5XAdOKzC+1f42Zhewy3///oCvvdYAdA==',
-      'corporate.symphony.com': '3lKUlQVVdU3QpY+fDHwxo3///oCcE/OwdA=='
+      'corporate.symphony.com': 'eboDMTcQT4GsDk6AjQP3zn///n8cy6jVdA=='
     },
     country: 'China',
     riskLevel: 'High',
@@ -75,7 +75,7 @@ export const deals: DashboardItemInterface[] = [
     members: [yannick, antoine],
     roomId: {
       'st3.symphony.com': 'egJ5XAdOKzC+1f42Zhewy3///oCvvdYAdA==',
-      'corporate.symphony.com': '/h1Gij/t2n1IloaTPQ/2Yn///oCcE2WhdA=='
+      'corporate.symphony.com': 'm4okqNL/fAtDdRBhVOxloX///n8cyzwNdA=='
     },
     country: 'USA',
     riskLevel: 'Low',
