@@ -13,6 +13,16 @@ export interface DashboardProps {
 export const Dashboard = (props: DashboardProps) => {
   const onDashboardItemClick = (item: DashboardItemInterface) => {
     props.onDashboardItemClick(item);
+
+    // FDC3
+    console.log(`FDC3: OpenRoom`, item);
+    (window as any).fdc3.raiseIntent('ViewChat', {
+      type: 'fdc3.chat.room',
+      providerName: 'Symphony',
+      id: {
+        streamIds: [item.details.roomId['st3.symphony.com']]
+      }
+    });
   }
   return (
     <>

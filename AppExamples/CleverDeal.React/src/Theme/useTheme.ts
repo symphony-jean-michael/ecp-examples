@@ -3,7 +3,7 @@ import defaultThemes from './default.json';
 
 export const useTheme = () => {
   const themes = defaultThemes.data;
-  const [theme, setTheme] = useState(defaultThemes.data.light);
+  const [theme, setTheme] = useState(defaultThemes.data.dark);
   const [themeLoaded, setThemeLoaded] = useState(false);
 
   const setMode = (mode: string) => {

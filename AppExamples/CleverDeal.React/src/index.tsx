@@ -10,7 +10,7 @@ const originInParams = (new URL(window.location.href)).searchParams.get('ecpOrig
 const loadSdk = (
 ): Promise<void> => {
   return new Promise<void>((resolve) => {
-    const sdkScriptNode = document.createElement('script');
+    /*const sdkScriptNode = document.createElement('script');
     sdkScriptNode.src = `https://${originInParams || DEFAULT_ORIGIN}/embed/sdk.js`;
     sdkScriptNode.id = 'symphony-ecm-sdk';
     sdkScriptNode.setAttribute('render', 'explicit');
@@ -22,7 +22,7 @@ const loadSdk = (
         }).then(() => {resolve();});
     };
     sdkScriptNode.setAttribute('data-onload', 'renderRoom');
-    document.body.appendChild(sdkScriptNode);
+    document.body.appendChild(sdkScriptNode);*/
   });
 };
 

@@ -1,5 +1,6 @@
 import React, { RefObject } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Button } from '@symphony-ui/uitoolkit-components';
 
 import { DashboardItemInterface } from "../../Models"
 import { Graph, Loading } from '..';
@@ -90,13 +91,6 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
           <Graph dealId={this.props.deal.dealId} dealName={this.props.deal.name} onShare={this.onShare}></Graph>
         </div>
         <div className="tabs">
-          <Tabs forceRenderTabPanel={true}>
-            <TabList>
-              <Tab>Details</Tab>
-              <Tab>History</Tab>
-              <Tab>Chat</Tab>
-            </TabList>
-            <TabPanel>
               <div className="deal-details">
                 <div className='deal-members'>
                   <div className="deal-detail-block-title">
@@ -122,16 +116,178 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
                   <span className="deal-detail-block-title">Minimum</span>
                   <span className="deal-detail-block-content">{details.minimum}</span>
                 </div>
+
+                <div className="deal-detail-block">
+                  <span className="deal-detail-block-content" style={{display: 'none'}}>
+                    <Button onClick={() => {
+                      console.log(`FDC3: OpenRoom`, details);
+
+                      const contacts = details.members.map((member) => ({ type: 'fdc3.contact', id: { email: member.email } }));
+                      const contextList = {
+                        type: 'fdc3.contactList',
+                        contacts
+                      };
+                      console.log(contextList);
+                      const context = {
+                        type: 'fdc3.chat.room',
+                        providerName: 'Symphony',
+                        id: {
+                          streamIds: [details.roomId['st3.symphony.com']]
+                        }
+                      };
+
+                      (window as any).fdc3.raiseIntent('ViewChat', context);
+
+                    }}>Open Room</Button>
+                  </span>
+                  <span>
+                    <Button onClick={() => {
+                      console.log(`FDC3: SendChatMessage`, details);
+
+                      const chatRoom = {
+                        "type": "fdc3.chat.room",
+                        "providerName": "Symphony",
+                        "id": {
+                          "streamIds": [
+                            details.roomId['st3.symphony.com']
+                          ]
+                        }
+                      };
+                      let chatMessageOld = {
+                        "type": "fdc3.chat.message",
+                        chatRoom,
+                        "message": {
+                          "type": "fdc3.message",
+                          "text": {
+                            "text/markdown": "Hey guys ! What do you think about **the new value** ? \n\n §[Open Chart](id/button1)"
+                          },
+                          "entities": {
+                            "button1": {
+                              "type": "fdc3.fdc3Intent",
+                              "data": {
+                                "title": "View chart",
+                                "intent": "ViewChart",
+                                "context": {
+                                  "type": "fdc3.instrument",
+                                  "name": "Biot",
+                                  "id": {
+                                    "ticker": "MSFT",
+                                  }
+                                }
+                              }
+                            }
+                          }                       
+                        }
+                      };
+
+                      let chatMessage2 = {
+                        "type": "fdc3.chat.message",
+                        chatRoom,
+                        "message": {
+                          "type": "fdc3.message",
+                          "text": {
+                            "text/markdown": "Hey guys ! What do you think about **the new value** ? \n\n §[Open Chart](id/button1)"
+                          },
+                          "entities": {
+                            "button1": {
+                              "type": "fdc3.fdc3Intent",
+                              "data": {
+                                "title": "View chart",
+                                "intent": "ViewChart",
+                                "context": {
+                                  type: "fdc3.chart",
+                                  instruments: [
+                                      {
+                                          type: "fdc3.instrument",
+                                          id: {
+                                              ticker: "AAPL"
+                                          }
+                                      },
+                                      {
+                                          type: "fdc3.instrument",
+                                          id: {
+                                              ticker: "GOOG"
+                                          }
+                                      }
+                                  ],
+                                  range: {
+                                      type: "fdc3.timeRange",
+                                      starttime: "2020-09-01T08:00:00.000Z",
+                                      endtime: "2020-10-31T08:00:00.000Z"
+                                  },
+                                  style: "line",
+                                  otherConfig: {
+                                    indicators: [
+                                        {
+                                            name: "ma",
+                                            parameters: {
+                                                period: 14,
+                                                type: "ema"
+                                            }
+                                        },
+                                        {
+                                            name: "volume"
+                                        }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }                       
+                        }
+                      };
+
+
+                      let chatMessage = {
+                        type: "fdc3.chat.message",
+                        chatRoom,
+                        message: {
+                          type: "fdc3.message",
+                          text: {
+                            "text/markdown": "Hey guys ! What do you think about **the new value** ? \n\n §[Open Chart](id/button1)"
+                          },
+                          entities: {
+                            button1: {
+                              type: "fdc3.fdc3Intent",
+                              data: {
+                                title: "View chart",
+                                intent: "ViewChart",
+                                context: {
+                                  type: "fdc3.chart",
+                                  instruments: [
+                                    {
+                                      type: "fdc3.instrument",
+                                      id: {
+                                        ticker: "AAPL"
+                                      }
+                                    }
+                                  ],
+                                  range: {
+                                      type: "fdc3.timeRange",
+                                      starttime: "2020-09-01T08:00:00.000Z",
+                                      endtime: "2020-10-31T08:00:00.000Z"
+                                  },
+                                  style: "mountain",
+                                  otherConfig: {
+                                    indicators: [
+                                      {
+                                        name: "volume"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }                       
+                        }
+                      };
+
+                    (window as any).fdc3.raiseIntent("SendChatMessage", chatMessage);
+                    }}>Send Chat Message</Button>
+                  </span>
+                </div>
+
               </div>
-            </TabPanel>
-            <TabPanel>
-              <h3>History</h3>
-            </TabPanel>
-            <TabPanel>
-              <div className={`loader ${this.state.sdkLoading ? 'loading' : ''}`}><Loading animate={true} className="chat-loading"></Loading></div>
-              <div ref={this.chatRef} className="symphony-ecm-chat" id={this.chatId}></div>
-            </TabPanel>
-          </Tabs>
         </div>
       </div>
     )

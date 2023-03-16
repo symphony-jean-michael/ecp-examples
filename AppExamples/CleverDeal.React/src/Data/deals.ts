@@ -39,7 +39,8 @@ const generateDeals = (n: number): DashboardItemInterface[] => {
         country: 'France',
         riskLevel: 'Medium',
         type: 'Whatever',
-        minimum: '$100k'
+        minimum: '$100k',
+        roomId: {}
       }
     })
   }
@@ -50,7 +51,7 @@ export const deals: DashboardItemInterface[] = [
   {dealId: '123456', lastUpdated: 'Today', status: 'active', name: 'Biot investment', details: {
     members: [yannick, thomas, zimmy],
     roomId: {
-      'st3.symphony.com': 'Cm2ZKi4E3qdH8NqUt4BHQH///oCvvlv6dA==',
+      'st3.symphony.com': 'SiuRpjsdymb4e53zKzuFkn///nkVPUAmdA==',//Cm2ZKi4E3qdH8NqUt4BHQH///oCvvlv6dA==',
       'corporate.symphony.com': '2n/aK4gQ3S8VnXPgPbXzF3///oCcFZezdA=='
     },
     country: 'France',
@@ -62,7 +63,7 @@ export const deals: DashboardItemInterface[] = [
   {dealId: '654321', lastUpdated: 'Yesterday', status: 'active', name: 'Sophia investment', details: {
     members: [yannick, antoine, thomas],
     roomId: {
-      'st3.symphony.com': 'egJ5XAdOKzC+1f42Zhewy3///oCvvdYAdA==',
+      'st3.symphony.com': 'Le/SskG3q6p4oW9bj6WTq3///nkVMxdpdA==',//'egJ5XAdOKzC+1f42Zhewy3///oCvvdYAdA==',
       'corporate.symphony.com': 'eboDMTcQT4GsDk6AjQP3zn///n8cy6jVdA=='
     },
     country: 'China',

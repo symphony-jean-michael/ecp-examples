@@ -13,7 +13,7 @@ export interface DashboardItemProps {
 export const DashboardItem = (props: DashboardItemProps) => {
   const {dealId, lastUpdated, status, name} = props.item;
   const [badgeCount, setBadgeCount] = useState<number>(0);
-  useEffect(() => {
+  /*useEffect(() => {
     const streamId = props.item.details.roomId && props.item.details.roomId[props.ecpOrigin]
     if (streamId) {
       props.sdkLoaded.then(() => {
@@ -28,7 +28,7 @@ export const DashboardItem = (props: DashboardItemProps) => {
         });
       })
     }
-  }, []);
+  }, []);*/
   return (
     <tr className={`item-row ${props.isActive ? 'active' : ''} ${props.item.status === 'active' ? 'clickable' : ''}`} onClick={() => props.item.status === 'active' && props.onClick(props.item)}>
       <td className="item-cell">{dealId}</td>
