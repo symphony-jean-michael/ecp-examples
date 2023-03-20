@@ -1,3 +1,112 @@
+# Demo FDC3
+
+## Clever Deal application
+
+Execute at in the directory 'ecp-examples/AppExamples/CleverDeal.React'
+
+```
+npm install
+npm start
+```
+
+It will start the Clever Deal on [http://localhost:3000](http://localhost:3000) (We will configure it in the configuration file of Finsemble-seed)
+
+## Finsemble-seed application
+
+Finsemble is available here: https://github.com/Finsemble/finsemble-seed
+You need to clone the repo
+```
+git clone https://github.com/finsemble/finsemble-seed
+```
+
+Then, you need to update finsemble-seed/public/configs/application/apps.json by adding:
+
+```json
+{
+  "apps": [
+    ...
+    {
+      "appId": "symphony",
+      "name": "Symphony",
+      "type": "web",
+      "details": {
+        "url": "https://st3.symphony.com/apps/client2?embed=true"
+      },
+      "interop": {
+        "intents": {
+          "listensFor": {
+            "StartChat": {
+              "contexts": ["fdc3.chat.initSettings"]
+            },
+            "SendChatMessage": {
+              "contexts": ["fdc3.chat.message"]
+            },
+            "ViewChat": {
+              "contexts": ["fdc3.chat.room", "fdc3.contact", "fdc3.contactList"]
+            },
+            "ViewMessages": {
+               "contexts": ["fdc3.searchCriteria", "fdc3.chat.searchCriteria"]
+            }
+          },
+          "raises": {
+            "ViewInstrument":  ["fdc3.instrument"],
+            "ViewContact":  ["fdc3.contact"],
+            "CreateInteraction":  ["fdc3.interaction"]
+          }
+        }
+      },
+      "hostManifests": {
+        "Finsemble": {
+          "window": {
+            "width": 900,
+            "height": 750,
+            "options": {
+              "minWidth": 175
+            }
+          },
+          "foreign": {
+            "components": {
+              "App Launcher": { "launchableByUser": true },
+              "Window Manager": { "FSBLHeader": true, "persistWindowState": true }
+            }
+          },
+          "interop": {
+            "selectConnect": [{
+              "autoAssociate": {
+                "allChildren": true
+              }
+            }]
+          }
+        }
+      }
+    },
+    {
+      "appId": "cleverdeal",
+      "name": "Clever deal",
+      "type": "web",
+      "details": {
+        "url": "http://localhost:3000/"
+      },
+      "interop": {
+        "intents": {
+          "raises": {
+            "ViewChat":  ["fdc3.chat.room"]
+          }
+        }
+      }
+    }
+
+    ...
+  ]
+}
+```
+
+Then do at the root level (finsemble-seed): (Be sure to use node v14 (or higher) )
+
+```
+yarn && yarn start
+```
+
 # Clever Deal application
 
 This application just aims to show how to integrate ECP into a React application. It relies on fake data and will target some preset steam ids that you can modify in the data folder. 
@@ -48,3 +157,5 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
