@@ -36,10 +36,7 @@
       "    text: {",
       "      'text/markdown': ${2:message}",
       "    },",
-      "    entities: {",
-      "      ${3:entities}",
-      "      }",
-      "    }", 
+      "    entities: ${3:entities},",
       "  }",
       "};",
       "$0"
@@ -70,6 +67,27 @@
     "description": "ViewChart FDC3 context"
   },
   
+  "DemoButton": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "demo.button",
+    "body": [
+      "<Button onClick={() => {",
+      "/* TODO: Send a message to the Symphony room */",
+      "",
+      "/* Step 1: Create Room context (Id: details.roomId)*/",
+      "$1",
+      "",
+      "/* Step 2: Create Message context */",
+      "$2",
+      "",
+      "/* Step 3: Raise 'SendChatMessage' intent */",
+      "$3",
+      "$0",
+      "}}>Send Chat Message</Button>"
+    ],
+    "description": "Demo: Add a button"
+  },
+
   "DemoMarkdown": {
     "scope": "javascript,typescript,typescriptreact",
     "prefix": "demo.markdown",
