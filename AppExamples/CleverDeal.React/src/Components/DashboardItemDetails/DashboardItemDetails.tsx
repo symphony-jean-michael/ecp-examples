@@ -29,7 +29,7 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
   }
 
   private openStream = () => {
-    const roomId = this.props.deal.details.roomId && this.props.deal.details.roomId[this.props.ecpOrigin];
+    const roomId = this.props.deal.details.roomId && this.props.deal.details.roomId/*[this.props.ecpOrigin]*/;
     if (roomId) {
       return (window as any).symphony.openStream(roomId, `#${this.chatId}`)
     }
@@ -53,7 +53,7 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
   }
 
   onShare = (b64Image: string) => {
-    const roomId = this.props.deal.details.roomId && this.props.deal.details.roomId[this.props.ecpOrigin];
+    const roomId = this.props.deal.details.roomId && this.props.deal.details.roomId/*[this.props.ecpOrigin]*/;
     if (!roomId) {
       return;
     }
@@ -120,22 +120,21 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
                 <div className="deal-detail-block">
                   <span>
                     <Button onClick={() => {
-                      console.log(`FDC3: SendChatMessage`, details);
-                      
-                      
-                      const chatRoom = {
+                      /* FDC3 - Add a new button to send a message to details.roomId */
+
+                      const room = {
                         type: 'fdc3.chat.room',
                         providerName: 'Symphony',
                         id: {
                           streamIds: [
-                            details.roomId['st3.symphony.com']
+                            details.roomId
                           ]
                         }
                       };
 
-                      const chatMessage = {
+                      const message = {
                         type: 'fdc3.chat.message',
-                        chatRoom,
+                        chatRoom: room,
                         message: {
                           type: 'fdc3.message',
                           text: {
@@ -147,7 +146,7 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
                               data: {
                                 title: 'View chart',
                                 intent: 'ViewChart',
-                                  context: {
+                                context: {
                                   type: 'fdc3.chart',
                                   instruments: [
                                     {
@@ -157,19 +156,7 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
                                       }
                                     }
                                   ],
-                                  range: {
-                                      type: 'fdc3.timeRange',
-                                      starttime: '2020-09-01T08:00:00.000Z',
-                                      endtime: '2020-10-31T08:00:00.000Z'
-                                  },
-                                  style: 'mountain',
-                                  otherConfig: {
-                                    indicators: [
-                                      {
-                                        name: 'volume'
-                                     }
-                                    ]
-                                  }
+                                  style: 'mountain'
                                 }
                               }
                             }
@@ -177,7 +164,8 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
                         }
                       };
 
-                      fdc3.raiseIntent("SendChatMessage", chatMessage);
+                      fdc3.raiseIntent('SendChatMessage', message);
+
                     }}>Send Chat Message</Button>
                   </span>
                 </div>

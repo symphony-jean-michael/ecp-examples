@@ -15,15 +15,17 @@ export const Dashboard = (props: DashboardProps) => {
   const onDashboardItemClick = (item: DashboardItemInterface) => {
     props.onDashboardItemClick(item); 
 
-    // FDC3
-    console.log(`FDC3: OpenRoom`, item);
-    (fdc3 as any).raiseIntent('ViewChat', {
+    // FDC3 - 1 : ViewChat intent
+    const room = {
       type: 'fdc3.chat.room',
       providerName: 'Symphony',
       id: {
-        streamIds: [item.details.roomId['st3.symphony.com']]
+        streamIds: [
+          item.details.roomId
+        ]
       }
-    });
+    };
+    (fdc3 as any).raiseIntent('ViewChat', room);
   }
   return (
     <>

@@ -1,24 +1,15 @@
 {
+  // Symphony FDC3 Code Snippets
 	// Place your ecp-examples workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
 	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
 	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
 	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
 	// Placeholders with the same ids are connected.
-	// Example:
-	"Print to console": {
-		"scope": "javascript,typescript,typescriptreact",
-		"prefix": "log2",
-		"body": [
-			"console.log('$1');",
-			"$2"
-		],
-		"description": "Log output to console"
-	},
 
   "ChatRoom": {
     "scope": "javascript,typescript,typescriptreact",
-    "prefix": "chatroomintent",
+    "prefix": "symfdc3.chatroom",
     "body": [
       "{",
       "  type: 'fdc3.chat.room',",
@@ -29,59 +20,76 @@
       "    ]",
       "  }",
       "};",
-      "$2"
+      "$0"
     ],
     "description": "ChatRoom Context"
   },
-
   "ChatMessage": {
     "scope": "javascript,typescript,typescriptreact",
-    "prefix": "chatmessage",
+    "prefix": "symfdc3.chatmessage",
     "body": [
       "{",
       "  type: 'fdc3.chat.message',",
-      "  chatRoom,",
+      "  chatRoom: ${1:room},",
       "  message: {",
       "    type: 'fdc3.message',",
       "    text: {",
-      "      'text/markdown': 'Hey guys ! What do you think about **the new value** ? \\n\\n §[Open Chart](id/button1)'",
+      "      'text/markdown': ${2:message}",
       "    },",
       "    entities: {",
-      "      button1: {",
-      "        type: 'fdc3.fdc3Intent',",
-      "        data: {",
-      "          title: 'View chart',",
-      "          intent: 'ViewChart',",
-      "            context: {",
-      "            type: 'fdc3.chart',",
-      "            instruments: [",
-      "              {",
-      "                type: 'fdc3.instrument',",
-      "                id: {",
-      "                  ticker: 'AAPL'",
-      "                }",
-      "              }",
-      "            ],",
-      "            range: {",
-      "                type: 'fdc3.timeRange',",
-      "                starttime: '2020-09-01T08:00:00.000Z',",
-      "                endtime: '2020-10-31T08:00:00.000Z'",
-      "            },",
-      "            style: 'mountain',",
-      "            otherConfig: {",
-      "              indicators: [",
-      "                {",
-      "                  name: 'volume'",
-      "               }",
-      "              ]",
-      "            }",
-      "          }",
-      "        }",
+      "      ${3:entities}",
       "      }",
       "    }", 
       "  }",
+      "};",
+      "$0"
+    ],
+    "description": "ChatMessage FDC3 context"
+  },
+  "ViewChart": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "symfdc3.viewchart",
+    "body": [
+      "{",
+      "  title: 'View chart',",
+      "  intent: 'ViewChart',",
+      "  context: {",
+      "    type: 'fdc3.chart',",
+      "    instruments: [",
+      "      {",
+      "        type: 'fdc3.instrument',",
+      "        id: {",
+      "          ticker: ${1:ticker}",
+      "        }",
+      "      }",
+      "    ],",
+      "    style: 'mountain'",
+      "  }",
+      "}$0",
+    ],
+    "description": "ViewChart FDC3 context"
+  },
+  
+  "DemoMarkdown": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "demo.markdown",
+    "body": [
+      "'Hey guys ! What do you think about **the new value** ? \\n\\n §[Open Chart](id/button1)'$0",
+    ],
+    "description": "Demo: Markdown message with entities"
+  },
+
+  "DemoEntities": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "demo.entities",
+    "body": [
+      "{",
+      "  button1: {",
+      "    type: 'fdc3.fdc3Intent',",
+      "    data: ${1:intent}",
+      "  }",
       "}"
     ],
-    "description": "ChatMessage Context"
-  }
+    "description": "Demo: Markdown message with entities"
+  },
 }
