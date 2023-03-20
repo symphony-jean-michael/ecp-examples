@@ -76,7 +76,7 @@ export const deals: DashboardItemInterface[] = [
   ...generateDeals(3),
   {dealId: '789103', lastUpdated: '2 days ago', status: 'active', name: 'Valbonne investment', details: {
     members: [yannick, antoine],
-    roomId: 'egJ5XAdOKzC+1f42Zhewy3///oCvvdYAdA==',
+    roomId: 'w3wFsyhAB71H4UidbvraI3///nkAOr4kdA==',
     /*{
       'st3.symphony.com': 'egJ5XAdOKzC+1f42Zhewy3///oCvvdYAdA==',
       'corporate.symphony.com': 'm4okqNL/fAtDdRBhVOxloX///n8cyzwNdA=='
