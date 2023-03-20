@@ -13,22 +13,6 @@ export interface DashboardItemProps {
 export const DashboardItem = (props: DashboardItemProps) => {
   const {dealId, lastUpdated, status, name} = props.item;
   const [badgeCount, setBadgeCount] = useState<number>(0);
-  /*useEffect(() => {
-    const streamId = props.item.details.roomId && props.item.details.roomId[props.ecpOrigin]
-    if (streamId) {
-      props.sdkLoaded.then(() => {
-        (window as any).symphony.listen({
-          type: 'UnreadCountNotifications',
-          params: {
-            streamId
-          },
-          callback: (notification: any) => { // TODO: Type?
-            setBadgeCount(notification.count);
-          },
-        });
-      })
-    }
-  }, []);*/
   return (
     <tr className={`item-row ${props.isActive ? 'active' : ''} ${props.item.status === 'active' ? 'clickable' : ''}`} onClick={() => props.item.status === 'active' && props.onClick(props.item)}>
       <td className="item-cell">{dealId}</td>

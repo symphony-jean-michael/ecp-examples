@@ -40,7 +40,7 @@ const generateDeals = (n: number): DashboardItemInterface[] => {
         riskLevel: 'Medium',
         type: 'Whatever',
         minimum: '$100k',
-        roomId: ''//{}
+        roomId: ''
       }
     })
   }

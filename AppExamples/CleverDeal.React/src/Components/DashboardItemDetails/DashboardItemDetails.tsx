@@ -53,7 +53,7 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
   }
 
   onShare = (b64Image: string) => {
-    const roomId = this.props.deal.details.roomId && this.props.deal.details.roomId/*[this.props.ecpOrigin]*/;
+    const roomId = this.props.deal.details.roomId && this.props.deal.details.roomId;
     if (!roomId) {
       return;
     }
