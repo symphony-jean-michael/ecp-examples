@@ -1,6 +1,7 @@
 import './Dashboard.scss';
 import { DashboardItemInterface } from '../../Models';
 import { DashboardItem } from '..';
+import * as fdc3 from '@finos/fdc3'
 
 export interface DashboardProps {
   dashboardItems: DashboardItemInterface[];
@@ -12,11 +13,11 @@ export interface DashboardProps {
 
 export const Dashboard = (props: DashboardProps) => {
   const onDashboardItemClick = (item: DashboardItemInterface) => {
-    props.onDashboardItemClick(item);
+    props.onDashboardItemClick(item); 
 
     // FDC3
     console.log(`FDC3: OpenRoom`, item);
-    (window as any).fdc3.raiseIntent('ViewChat', {
+    (fdc3 as any).raiseIntent('ViewChat', {
       type: 'fdc3.chat.room',
       providerName: 'Symphony',
       id: {
