@@ -1,7 +1,8 @@
 import './Dashboard.scss';
 import { DashboardItemInterface } from '../../Models';
 import { DashboardItem } from '..';
-import * as fdc3 from '@finos/fdc3'
+import '../demo';
+
 
 export interface DashboardProps {
   dashboardItems: DashboardItemInterface[];

@@ -88,9 +88,18 @@
     "description": "Demo: Add a button"
   },
 
-  "DemoMarkdown": {
+  "DemoMarkdown1": {
     "scope": "javascript,typescript,typescriptreact",
-    "prefix": "demo.markdown",
+    "prefix": "demo.markdown.1",
+    "body": [
+      "'Hey guys ! What do you think about **the new value** ?'$0",
+    ],
+    "description": "Demo: Markdown message"
+  },
+
+  "DemoMarkdown2": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "demo.markdown.2",
     "body": [
       "'Hey guys ! What do you think about **the new value** ? \\n\\n §[Open Chart](id/button1)'$0",
     ],

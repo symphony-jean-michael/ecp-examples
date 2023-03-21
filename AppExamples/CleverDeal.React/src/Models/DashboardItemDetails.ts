@@ -12,6 +12,7 @@ export interface Member {
 export interface RoomIdMap extends Record<string, string> {};
 
 export interface DashboardItemDetailsInterface {
+  ticker?: string,
   roomId: string /*RoomIdMap*/;
   members: Member[];
   country: string;

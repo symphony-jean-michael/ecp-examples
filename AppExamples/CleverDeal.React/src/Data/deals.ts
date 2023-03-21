@@ -50,6 +50,7 @@ const generateDeals = (n: number): DashboardItemInterface[] => {
 export const deals: DashboardItemInterface[] = [
   {dealId: '123456', lastUpdated: 'Today', status: 'active', name: 'Biot investment', details: {
     members: [yannick, thomas, zimmy],
+    ticker: 'AAPL',
     roomId: 'ukiBBTWrfSJf8aJG8bri7H///nkAVF7ldA==',
     /*{
       'st3.symphony.com': 'SiuRpjsdymb4e53zKzuFkn///nkVPUAmdA==',//Cm2ZKi4E3qdH8NqUt4BHQH///oCvvlv6dA==',
@@ -63,6 +64,7 @@ export const deals: DashboardItemInterface[] = [
   ...generateDeals(2),
   {dealId: '654321', lastUpdated: 'Yesterday', status: 'active', name: 'Sophia investment', details: {
     members: [yannick, antoine, thomas],
+    ticker: 'TSLA',
     roomId: '933USqu3iSZZMmDUk0w1xH///nkAU90YdA==',
     /*{
       'st3.symphony.com': 'Le/SskG3q6p4oW9bj6WTq3///nkVMxdpdA==',//'egJ5XAdOKzC+1f42Zhewy3///oCvvdYAdA==',
@@ -76,6 +78,7 @@ export const deals: DashboardItemInterface[] = [
   ...generateDeals(3),
   {dealId: '789103', lastUpdated: '2 days ago', status: 'active', name: 'Valbonne investment', details: {
     members: [yannick, antoine],
+    ticker: 'MSFT',
     roomId: 'w3wFsyhAB71H4UidbvraI3///nkAOr4kdA==',
     /*{
       'st3.symphony.com': 'egJ5XAdOKzC+1f42Zhewy3///oCvvdYAdA==',
