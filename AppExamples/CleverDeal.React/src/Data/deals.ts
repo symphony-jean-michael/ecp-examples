@@ -52,6 +52,10 @@ export const deals: DashboardItemInterface[] = [
     members: [yannick, thomas, zimmy],
     ticker: 'AAPL',
     roomId: 'ukiBBTWrfSJf8aJG8bri7H///nkAVF7ldA==',
+
+    // DEMO: 'nkBrjXuvuDVj+93MoWzQ6X///nj2NHmYdA=='
+    // JM TEST: 'ukiBBTWrfSJf8aJG8bri7H///nkAVF7ldA=='
+
     /*{
       'st3.symphony.com': 'SiuRpjsdymb4e53zKzuFkn///nkVPUAmdA==',//Cm2ZKi4E3qdH8NqUt4BHQH///oCvvlv6dA==',
       'corporate.symphony.com': '2n/aK4gQ3S8VnXPgPbXzF3///oCcFZezdA=='
@@ -66,6 +70,10 @@ export const deals: DashboardItemInterface[] = [
     members: [yannick, antoine, thomas],
     ticker: 'TSLA',
     roomId: '933USqu3iSZZMmDUk0w1xH///nkAU90YdA==',
+
+    // DEMO: 'cIhIw2NU5ZemxAhikZiP+3///nj2NOAQdA=='
+    // JM TEST: '933USqu3iSZZMmDUk0w1xH///nkAU90YdA=='
+
     /*{
       'st3.symphony.com': 'Le/SskG3q6p4oW9bj6WTq3///nkVMxdpdA==',//'egJ5XAdOKzC+1f42Zhewy3///oCvvdYAdA==',
       'corporate.symphony.com': 'eboDMTcQT4GsDk6AjQP3zn///n8cy6jVdA=='
@@ -80,6 +88,10 @@ export const deals: DashboardItemInterface[] = [
     members: [yannick, antoine],
     ticker: 'MSFT',
     roomId: 'w3wFsyhAB71H4UidbvraI3///nkAOr4kdA==',
+
+    // DEMO: 'LsaOJ4qUpyKanAhVYtcTd3///nj2NAQddA=='
+    // JM TEST: 
+
     /*{
       'st3.symphony.com': 'egJ5XAdOKzC+1f42Zhewy3///oCvvdYAdA==',
       'corporate.symphony.com': 'm4okqNL/fAtDdRBhVOxloX///n8cyzwNdA=='
