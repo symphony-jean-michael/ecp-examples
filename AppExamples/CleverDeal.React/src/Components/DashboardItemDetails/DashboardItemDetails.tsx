@@ -1,7 +1,7 @@
 import React, { RefObject } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { Button } from '@symphony-ui/uitoolkit-components';
-import * as fdc3 from '@finos/fdc3'
+//import * as fdc3 from '@finos/fdc3'
 import { DashboardItemInterface } from "../../Models"
 import { Graph, Loading } from '..';
 import './DashboardItemDetails.scss';
@@ -152,7 +152,7 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
                                     {
                                       type: 'fdc3.instrument',
                                       id: {
-                                        ticker: 'AAPL'
+                                        ticker: details.ticker
                                       }
                                     }
                                   ],
@@ -164,7 +164,7 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
                         }
                       };
 
-                      fdc3.raiseIntent('SendChatMessage', message);
+                      window.fdc3.raiseIntent('SendChatMessage', message);
 
                     }}>Send Chat Message</Button>
                   </span>

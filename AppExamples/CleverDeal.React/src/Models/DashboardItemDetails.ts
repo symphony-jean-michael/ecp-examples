@@ -18,6 +18,7 @@ export interface DashboardItemDetailsInterface {
   riskLevel: string;
   type: string;
   minimum: string;
+  ticker?: string
 } 
 
 export interface DashboardItemInterface {
