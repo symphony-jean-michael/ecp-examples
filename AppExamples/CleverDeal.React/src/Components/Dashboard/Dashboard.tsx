@@ -30,7 +30,7 @@ export const Dashboard = (props: DashboardProps) => {
           </tr>
         </thead>
         <tbody>
-          {props.dashboardItems.map((item) => (<DashboardItem ecpOrigin={props.ecpOrigin} sdkLoaded={props.sdkLoaded} isActive={props.selectedDealId === item.dealId} onClick={onDashboardItemClick} key={item.dealId} item={item}></DashboardItem>))}
+          {props.dashboardItems.map((item) => (<DashboardItem onClick={onDashboardItemClick}  ecpOrigin={props.ecpOrigin} sdkLoaded={props.sdkLoaded} isActive={props.selectedDealId === item.dealId} key={item.dealId} item={item}></DashboardItem>))}
         </tbody>
       </table>
     </>
