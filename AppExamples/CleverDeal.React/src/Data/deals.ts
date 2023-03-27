@@ -51,7 +51,7 @@ export const deals: DashboardItemInterface[] = [
   {dealId: '123456', lastUpdated: 'Today', status: 'active', name: 'Biot investment', details: {
     members: [yannick, thomas, zimmy],
     ticker: 'AAPL',
-    roomId: 'ukiBBTWrfSJf8aJG8bri7H///nkAVF7ldA==',
+    roomId: '2n/aK4gQ3S8VnXPgPbXzF3///oCcFZezdA==',
 
     // DEMO: 'nkBrjXuvuDVj+93MoWzQ6X///nj2NHmYdA=='
     // JM TEST: 'ukiBBTWrfSJf8aJG8bri7H///nkAVF7ldA=='
@@ -69,7 +69,7 @@ export const deals: DashboardItemInterface[] = [
   {dealId: '654321', lastUpdated: 'Yesterday', status: 'active', name: 'Sophia investment', details: {
     members: [yannick, antoine, thomas],
     ticker: 'TSLA',
-    roomId: '933USqu3iSZZMmDUk0w1xH///nkAU90YdA==',
+    roomId: 'eboDMTcQT4GsDk6AjQP3zn///n8cy6jVdA==',
 
     // DEMO: 'cIhIw2NU5ZemxAhikZiP+3///nj2NOAQdA=='
     // JM TEST: '933USqu3iSZZMmDUk0w1xH///nkAU90YdA=='
@@ -87,7 +87,7 @@ export const deals: DashboardItemInterface[] = [
   {dealId: '789103', lastUpdated: '2 days ago', status: 'active', name: 'Valbonne investment', details: {
     members: [yannick, antoine],
     ticker: 'MSFT',
-    roomId: 'w3wFsyhAB71H4UidbvraI3///nkAOr4kdA==',
+    roomId: 'm4okqNL/fAtDdRBhVOxloX///n8cyzwNdA==',
 
     // DEMO: 'LsaOJ4qUpyKanAhVYtcTd3///nj2NAQddA=='
     // JM TEST: 'w3wFsyhAB71H4UidbvraI3///nkAOr4kdA=='

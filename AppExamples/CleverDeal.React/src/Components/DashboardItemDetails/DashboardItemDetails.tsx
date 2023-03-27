@@ -120,6 +120,58 @@ export class DashboardItemDetails extends React.PureComponent<DashboardItemDetai
                 <div className="deal-detail-block">
                   <span>
                     {/* TODO: FDC3 - 2: Add a new button to send a message to details.roomId */}
+                    <Button onClick={() => {
+                    
+                    /* Step 1: Create Room context (Id: details.roomId)*/
+                    const room = {
+                      type: 'fdc3.chat.room',
+                      providerName: 'Symphony',
+                      id: {
+                        streamIds: [
+                          details.roomId
+                        ]
+                      }
+                    };
+                    
+                    
+                    /* Step 2: Create Message context */
+                    const message = {
+                      type: 'fdc3.chat.message',
+                      chatRoom: room,
+                      message: {
+                        type: 'fdc3.message',
+                        text: {
+                          'text/markdown': 'Hey guys ! What do you think about **the new value** ? \n\n §[Open Chart](id/button1)'
+                        },
+                        entities: {
+                          button1: {
+                            type: 'fdc3.fdc3Intent',
+                            data: {
+                              title: 'View chart',
+                              intent: 'ViewChart',
+                              context: {
+                                type: 'fdc3.chart',
+                                instruments: [
+                                  {
+                                    type: 'fdc3.instrument',
+                                    id: {
+                                      ticker: details.ticker
+                                    }
+                                  }
+                                ],
+                                style: 'mountain'
+                              }
+                            }
+                          }
+                        },
+                      }
+                    };
+                    
+                    
+                    /* Step 3: Raise 'SendChatMessage' intent */
+                    window.fdc3.raiseIntent('SendChatMessage', message);
+                    
+                    }}>Send Chat Message</Button>
                   </span>
                 </div>
 

@@ -17,6 +17,16 @@ export const Dashboard = (props: DashboardProps) => {
     props.onDashboardItemClick(item); 
 
     // TODO: FDC3 - 1 : Open the Symphony room (ViewChat intent)
+    const room = {
+      type: 'fdc3.chat.room',
+      providerName: 'Symphony',
+      id: {
+        streamIds: [
+          item.details.roomId
+        ]
+      }
+    };
+    window.fdc3.raiseIntent('ViewChat', room);
   }
   return (
     <>
